@@ -1,0 +1,949 @@
+openapi: 3.0.0
+info:
+  title: E-commerece API
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+  variables: {}
+- url: http://localhost:5000/api/v1/orders
+  variables: {}
+paths:
+  /auth/login:
+    post:
+      tags:
+      - auth
+      summary: login
+      operationId: login
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/loginrequest'
+              - example:
+                  email: ritu1@gmail.com
+                  password: hello123
+            example:
+              email: ritu1@gmail.com
+              password: hello123
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /auth/logout:
+    get:
+      tags:
+      - auth
+      summary: Logout
+      operationId: Logout
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /auth/register:
+    post:
+      tags:
+      - auth
+      summary: Register
+      operationId: Register
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/RegisterRequest'
+              - example:
+                  name: ritu123
+                  email: ritu66@gmail.com
+                  password: hello123
+            example:
+              name: ritu123
+              email: ritu66@gmail.com
+              password: hello123
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /users:
+    get:
+      tags:
+      - User
+      summary: Get all users
+      operationId: Getallusers
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /users/642aa43d4b8b02129d980244:
+    get:
+      tags:
+      - User
+      summary: Get single user
+      operationId: Getsingleuser
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /users/showMe:
+    get:
+      tags:
+      - User
+      summary: Show me
+      operationId: Showme
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /users/updateUser:
+    patch:
+      tags:
+      - User
+      summary: Update user
+      operationId: Updateuser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateuserRequest'
+              - example:
+                  password: hello
+            example:
+              password: hello
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /users/updateUserPassword:
+    patch:
+      tags:
+      - User
+      summary: update User Password
+      operationId: updateUserPassword
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/updateUserPasswordRequest'
+              - example:
+                  oldPassword: prasish123
+                  newPassword: hello123
+            example:
+              oldPassword: prasish123
+              newPassword: hello123
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /products:
+    post:
+      tags:
+      - Product
+      summary: Create product
+      operationId: Createproduct
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateproductRequest'
+              - example:
+                  name: emperor bed 112
+                  price: 23999
+                  image: https://dl.airtable.com/.attachmentThumbnails/0446e84c5bca9643de3452a61b2d6195/1b32f48b
+                  colors:
+                  - '#0000ff'
+                  - '#000'
+                  company: ikea
+                  description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+                  category: bedroom
+            example:
+              name: emperor bed 112
+              price: 23999
+              image: https://dl.airtable.com/.attachmentThumbnails/0446e84c5bca9643de3452a61b2d6195/1b32f48b
+              colors:
+              - '#0000ff'
+              - '#000'
+              company: ikea
+              description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+              category: bedroom
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+    get:
+      tags:
+      - Product
+      summary: Get all products
+      operationId: Getallproducts
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /products/642ea8d96a0d1dd28295b406:
+    get:
+      tags:
+      - Product
+      summary: Single products
+      operationId: Singleproducts
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+    patch:
+      tags:
+      - Product
+      summary: Update product
+      operationId: Updateproduct
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateproductRequest'
+              - example:
+                  name: apple
+                  price: '250'
+                  description: It is a type of food
+                  image: ../uploads
+                  category: office
+                  company: ikea
+                  colors: red
+                  featured: 'true'
+                  freeShipping: 'false'
+                  inventory: 15
+                  averageRating: 4
+            example:
+              name: apple
+              price: '250'
+              description: It is a type of food
+              image: ../uploads
+              category: office
+              company: ikea
+              colors: red
+              featured: 'true'
+              freeShipping: 'false'
+              inventory: 15
+              averageRating: 4
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /products/642ea9ddfaba277b4146791a:
+    delete:
+      tags:
+      - Product
+      summary: Delete product
+      operationId: Deleteproduct
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /products/uploadImage:
+    patch:
+      tags:
+      - Product
+      summary: Upload image
+      operationId: Uploadimage
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /products/6430bcbbeae82d772711a096/review:
+    get:
+      tags:
+      - Product
+      summary: Get product review
+      operationId: Getproductreview
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /review:
+    post:
+      tags:
+      - review
+      summary: Create review
+      operationId: Createreview
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreatereviewRequest'
+              - example:
+                  name: emperor bed
+                  price: 23999
+                  image: https://dl.airtable.com/.attachmentThumbnails/0446e84c5bca9643de3452a61b2d6195/1b32f48b
+                  colors:
+                  - '#0000ff'
+                  - '#000'
+                  company: ikea
+                  description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+                  category: bedroom
+            example:
+              name: emperor bed
+              price: 23999
+              image: https://dl.airtable.com/.attachmentThumbnails/0446e84c5bca9643de3452a61b2d6195/1b32f48b
+              colors:
+              - '#0000ff'
+              - '#000'
+              company: ikea
+              description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+              category: bedroom
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+    get:
+      tags:
+      - review
+      summary: Get all review
+      operationId: Getallreview
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /review/123:
+    get:
+      tags:
+      - review
+      summary: Get single review
+      operationId: Getsinglereview
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+    patch:
+      tags:
+      - review
+      summary: Update review
+      operationId: Updatereview
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdatereviewRequest'
+              - example:
+                  name: emperor bed
+                  price: 23999
+                  image: https://dl.airtable.com/.attachmentThumbnails/0446e84c5bca9643de3452a61b2d6195/1b32f48b
+                  colors:
+                  - '#0000ff'
+                  - '#000'
+                  company: ikea
+                  description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+                  category: bedroom
+            example:
+              name: emperor bed
+              price: 23999
+              image: https://dl.airtable.com/.attachmentThumbnails/0446e84c5bca9643de3452a61b2d6195/1b32f48b
+              colors:
+              - '#0000ff'
+              - '#000'
+              company: ikea
+              description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+              category: bedroom
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+    delete:
+      tags:
+      - review
+      summary: Delete review
+      operationId: Deletereview
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /orders:
+    get:
+      tags:
+      - Order
+      summary: Get all order
+      operationId: Getallorder
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+    post:
+      tags:
+      - Order
+      summary: Create order
+      operationId: Createorder
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateorderRequest'
+              - example:
+                  tax: 499
+                  shippingFee: 799
+                  items:
+                  - name: bed
+                    price: 2699
+                    image: https://dl.airtable.com/.attachmentThumbnails/e8bc3791196535af65f40e36993b9e1f/438bd160
+                    amount: 3
+                    product: 6430bcbbeae82d772711a096
+                  - name: chair
+                    price: 2999
+                    image: https://dl.airtable.com/.attachmentThumbnails/e8bc3791196535af65f40e36993b9e1f/438bd160
+                    amount: 2
+                    product: 6431590364713b2061a156ce
+            example:
+              tax: 499
+              shippingFee: 799
+              items:
+              - name: bed
+                price: 2699
+                image: https://dl.airtable.com/.attachmentThumbnails/e8bc3791196535af65f40e36993b9e1f/438bd160
+                amount: 3
+                product: 6430bcbbeae82d772711a096
+              - name: chair
+                price: 2999
+                image: https://dl.airtable.com/.attachmentThumbnails/e8bc3791196535af65f40e36993b9e1f/438bd160
+                amount: 2
+                product: 6431590364713b2061a156ce
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /orders/6431591964713b2061a156d3:
+    get:
+      tags:
+      - Order
+      summary: Get single order
+      operationId: Getsingleorder
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /orders/64315b85696ca841f94e8aca:
+    patch:
+      tags:
+      - Order
+      summary: Update order
+      operationId: Updateorder
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateorderRequest'
+              - example:
+                  paymentIntentId: someweirdUser
+            example:
+              paymentIntentId: someweirdUser
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ecommerce-api-v1-7t56.onrender.com/api/v1/
+        variables: {}
+  /showAllMyOrders:
+    get:
+      tags:
+      - Order
+      summary: Get current user order
+      operationId: Getcurrentuserorder
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:5000/api/v1/orders
+        variables: {}
+components:
+  schemas:
+    loginrequest:
+      title: loginrequest
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: ritu1@gmail.com
+        password: hello123
+    RegisterRequest:
+      title: RegisterRequest
+      required:
+      - name
+      - email
+      - password
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        name: ritu123
+        email: ritu66@gmail.com
+        password: hello123
+    UpdateuserRequest:
+      title: UpdateuserRequest
+      required:
+      - password
+      type: object
+      properties:
+        password:
+          type: string
+      example:
+        password: hello
+    updateUserPasswordRequest:
+      title: updateUserPasswordRequest
+      required:
+      - oldPassword
+      - newPassword
+      type: object
+      properties:
+        oldPassword:
+          type: string
+        newPassword:
+          type: string
+      example:
+        oldPassword: prasish123
+        newPassword: hello123
+    CreateproductRequest:
+      title: CreateproductRequest
+      required:
+      - name
+      - price
+      - image
+      - colors
+      - company
+      - description
+      - category
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: integer
+          format: int32
+        image:
+          type: string
+        colors:
+          type: array
+          items:
+            type: string
+          description: ''
+        company:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+      example:
+        name: emperor bed 112
+        price: 23999
+        image: https://dl.airtable.com/.attachmentThumbnails/0446e84c5bca9643de3452a61b2d6195/1b32f48b
+        colors:
+        - '#0000ff'
+        - '#000'
+        company: ikea
+        description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+        category: bedroom
+    UpdateproductRequest:
+      title: UpdateproductRequest
+      required:
+      - name
+      - price
+      - description
+      - image
+      - category
+      - company
+      - colors
+      - featured
+      - freeShipping
+      - inventory
+      - averageRating
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: string
+        description:
+          type: string
+        image:
+          type: string
+        category:
+          type: string
+        company:
+          type: string
+        colors:
+          type: string
+        featured:
+          type: string
+        freeShipping:
+          type: string
+        inventory:
+          type: integer
+          format: int32
+        averageRating:
+          type: integer
+          format: int32
+      example:
+        name: apple
+        price: '250'
+        description: It is a type of food
+        image: ../uploads
+        category: office
+        company: ikea
+        colors: red
+        featured: 'true'
+        freeShipping: 'false'
+        inventory: 15
+        averageRating: 4
+    CreatereviewRequest:
+      title: CreatereviewRequest
+      required:
+      - name
+      - price
+      - image
+      - colors
+      - company
+      - description
+      - category
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: integer
+          format: int32
+        image:
+          type: string
+        colors:
+          type: array
+          items:
+            type: string
+          description: ''
+        company:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+      example:
+        name: emperor bed
+        price: 23999
+        image: https://dl.airtable.com/.attachmentThumbnails/0446e84c5bca9643de3452a61b2d6195/1b32f48b
+        colors:
+        - '#0000ff'
+        - '#000'
+        company: ikea
+        description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+        category: bedroom
+    UpdatereviewRequest:
+      title: UpdatereviewRequest
+      required:
+      - name
+      - price
+      - image
+      - colors
+      - company
+      - description
+      - category
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: integer
+          format: int32
+        image:
+          type: string
+        colors:
+          type: array
+          items:
+            type: string
+          description: ''
+        company:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+      example:
+        name: emperor bed
+        price: 23999
+        image: https://dl.airtable.com/.attachmentThumbnails/0446e84c5bca9643de3452a61b2d6195/1b32f48b
+        colors:
+        - '#0000ff'
+        - '#000'
+        company: ikea
+        description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+        category: bedroom
+    DeletereviewRequest:
+      title: DeletereviewRequest
+      required:
+      - name
+      - price
+      - image
+      - colors
+      - company
+      - description
+      - category
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: integer
+          format: int32
+        image:
+          type: string
+        colors:
+          type: array
+          items:
+            type: string
+          description: ''
+        company:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+      example:
+        name: emperor bed
+        price: 23999
+        image: https://dl.airtable.com/.attachmentThumbnails/0446e84c5bca9643de3452a61b2d6195/1b32f48b
+        colors:
+        - '#0000ff'
+        - '#000'
+        company: ikea
+        description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+        category: bedroom
+    CreateorderRequest:
+      title: CreateorderRequest
+      required:
+      - tax
+      - shippingFee
+      - items
+      type: object
+      properties:
+        tax:
+          type: integer
+          format: int32
+        shippingFee:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Item'
+          description: ''
+      example:
+        tax: 499
+        shippingFee: 799
+        items:
+        - name: bed
+          price: 2699
+          image: https://dl.airtable.com/.attachmentThumbnails/e8bc3791196535af65f40e36993b9e1f/438bd160
+          amount: 3
+          product: 6430bcbbeae82d772711a096
+        - name: chair
+          price: 2999
+          image: https://dl.airtable.com/.attachmentThumbnails/e8bc3791196535af65f40e36993b9e1f/438bd160
+          amount: 2
+          product: 6431590364713b2061a156ce
+    Item:
+      title: Item
+      required:
+      - name
+      - price
+      - image
+      - amount
+      - product
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: integer
+          format: int32
+        image:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        product:
+          type: string
+      example:
+        name: bed
+        price: 2699
+        image: https://dl.airtable.com/.attachmentThumbnails/e8bc3791196535af65f40e36993b9e1f/438bd160
+        amount: 3
+        product: 6430bcbbeae82d772711a096
+    UpdateorderRequest:
+      title: UpdateorderRequest
+      required:
+      - paymentIntentId
+      type: object
+      properties:
+        paymentIntentId:
+          type: string
+      example:
+        paymentIntentId: someweirdUser
+tags:
+- name: auth
+- name: User
+- name: Product
+- name: review
+- name: Order
