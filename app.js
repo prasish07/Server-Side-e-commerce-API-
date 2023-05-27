@@ -47,7 +47,7 @@ app.use(
 app.use(helmet());
 app.use(
   cors({
-    origin: "https://e-commerece-8971.netlify.app/", // Replace with the origin(s) you want to allow
+    origin: "https://e-commerece-8971.netlify.app" || "http://localhost:3000", // Replace with the origin(s) you want to allow
     methods: ["GET", "POST", "PUT", "DELETE"], // Specify the allowed HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"], // Specify the allowed headers
     credentials: true, // Allow sending cookies and authorization headers
@@ -62,7 +62,10 @@ app.use(express.static("./Public"));
 app.use(fileUpload({ useTempFiles: true }));
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://e-commerece-8971.netlify.app" || "http://localhost:3000"
+  );
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
