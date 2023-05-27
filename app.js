@@ -62,17 +62,6 @@ app.use(cookieParser(process.env.JWT_SECRET));
 app.use(express.static("./Public"));
 app.use(fileUpload({ useTempFiles: true }));
 
-// Remove this code block
-app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://e-commerece-8971.netlify.app" || "http://localhost:3000"
-  );
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});
-
 app.get("/", (req, res) => {
   res.send("<h1>E-commerece API</h1><a href='/api-docs'>Documentation</a>");
 });
