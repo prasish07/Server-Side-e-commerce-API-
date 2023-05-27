@@ -47,12 +47,13 @@ app.use(
 app.use(helmet());
 app.use(
   cors({
-    origin: "https://e-commerece-8971.netlify.app" || "http://localhost:3000", // Replace with the origin(s) you want to allow
-    methods: ["GET", "POST", "PUT", "DELETE"], // Specify the allowed HTTP methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Specify the allowed headers
-    credentials: true, // Allow sending cookies and authorization headers
+    origin: ["https://e-commerece-8971.netlify.app", "http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   })
 );
+
 app.use(xss());
 app.use(mongoSenitize());
 
@@ -61,15 +62,14 @@ app.use(cookieParser(process.env.JWT_SECRET));
 app.use(express.static("./Public"));
 app.use(fileUpload({ useTempFiles: true }));
 
-// Enable CORS for all routes
+// Remove this code block
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
     "https://e-commerece-8971.netlify.app" || "http://localhost:3000"
   );
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
 });
 
