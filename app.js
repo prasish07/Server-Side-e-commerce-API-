@@ -61,13 +61,15 @@ app.use(cookieParser(process.env.JWT_SECRET));
 app.use(express.static("./Public"));
 app.use(fileUpload({ useTempFiles: true }));
 
+// Enable CORS for all routes
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
     "https://e-commerece-8971.netlify.app" || "http://localhost:3000"
   );
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true");
   next();
 });
 
