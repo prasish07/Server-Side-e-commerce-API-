@@ -47,7 +47,11 @@ app.use(
 app.use(helmet());
 app.use(
   cors({
-    origin: ["https://e-commerece-8971.netlify.app", "http://localhost:3000"],
+    origin: [
+      "https://e-commerece-8971.netlify.app",
+      "http://localhost:5000",
+      "https://e-commerce-0990.onrender.com",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
