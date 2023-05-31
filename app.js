@@ -49,7 +49,7 @@ app.use(
   cors({
     origin: [
       "https://e-commerece-8971.netlify.app",
-      "http://localhost:5000",
+      "http://localhost:3000",
       "https://e-commerce-0990.onrender.com",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
