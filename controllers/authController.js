@@ -4,6 +4,7 @@ const { BadRequestError, NotFoundError } = require("../errors");
 const CustomerError = require("../errors");
 const jwt = require("jsonwebtoken");
 const { attachCookiesToResponse, createTokenUser } = require("../utils");
+const { createJWT } = require("../utils/jwt");
 
 const register = async (req, res) => {
   const { name, email, password } = req.body;
@@ -21,8 +22,6 @@ const register = async (req, res) => {
   console.log(tokenPayload);
 
   attachCookiesToResponse({ res, tokenPayload });
-
-  res.status("200").json({ success: true, data: users });
 };
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -43,8 +42,9 @@ const login = async (req, res) => {
     role: user.role,
   };
   attachCookiesToResponse({ res, tokenPayload });
+  const token = createJWT({ payload: tokenPayload });
 
-  res.status("200").json({ success: true, data: user });
+  res.status("200").json({ success: true, data: user, token: token });
 };
 const logout = async (req, res) => {
   res.cookie("token", "logout", {

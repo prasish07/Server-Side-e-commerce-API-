@@ -11,6 +11,7 @@ const auth = async (req, res, next) => {
     const decoded = verifyJWT({ token: token });
     // console.log(decoded);
     req.user = decoded;
+    req.token = { token };
     next();
   } catch (error) {
     throw new CustomerError.UnauthenticatedError("Wrong token");
