@@ -13,7 +13,8 @@ const auth = async (req, res, next) => {
   //   req.user = decoded;
   //   req.token = { token };
   //   next();
-  const token = req.headers.authorization;
+  const authorized = req.headers.authorization;
+  const token = authorized.split(" ")[1];
 
   if (!token)
     throw new CustomerError.UnauthenticatedError("Please provide a token");
