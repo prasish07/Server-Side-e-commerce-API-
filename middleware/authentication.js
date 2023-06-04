@@ -3,9 +3,20 @@ const { StatusCodes } = require("http-status-codes");
 const { verifyJWT } = require("../utils");
 
 const auth = async (req, res, next) => {
-  const token = req.signedCookies.token;
+  // const token = req.signedCookies.token;
+  // if (!token)
+  //   throw new CustomerError.UnauthenticatedError("Please login to continue");
+
+  // try {
+  //   const decoded = verifyJWT({ token: token });
+  //   // console.log(decoded);
+  //   req.user = decoded;
+  //   req.token = { token };
+  //   next();
+  const token = req.headers.authorization;
+
   if (!token)
-    throw new CustomerError.UnauthenticatedError("Please login to continue");
+    throw new CustomerError.UnauthenticatedError("Please provide a token");
 
   try {
     const decoded = verifyJWT({ token: token });
